@@ -1,13 +1,22 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-
+  { path: "", redirectTo: "products", pathMatch: "full" },
+  {
+    path: "products",
+    loadChildren: () =>
+      import("./product/product.module").then((m) => m.ProductModule),
+  },
+  {
+    path: "admin/products",
+    loadChildren: () =>
+      import("./product/product.module").then((m) => m.ProductModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
   exports: [RouterModule],
 })
-
-export class AppRoutingModule {}
+export class AppRoutingModule { }
