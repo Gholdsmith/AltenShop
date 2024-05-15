@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductRoutingModule } from './product-routing.module';
 import { ProductsAdminComponent } from './products-admin/products-admin.component';
 import { ProductsComponent } from './products/products.component';
 import { DataViewModule } from 'primeng/dataview';
 import { TabViewModule } from 'primeng/tabview';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -14,9 +14,10 @@ import { TabViewModule } from 'primeng/tabview';
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule,
+    // ProductRoutingModule,
     DataViewModule,
-    TabViewModule
+    TabViewModule,
+    ButtonModule
   ]
 })
 export class ProductModule { }
