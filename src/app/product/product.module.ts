@@ -6,6 +6,7 @@ import { ProductsComponent } from './products/products.component';
 import { DataViewModule } from 'primeng/dataview';
 import { TabViewModule } from 'primeng/tabview';
 import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     DataViewModule,
     TabViewModule,
-    ButtonModule
+    ButtonModule,
+    TagModule
   ]
 })
 export class ProductModule { }

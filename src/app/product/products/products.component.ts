@@ -10,6 +10,7 @@ import { Subscription } from "rxjs/internal/Subscription";
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  
 
   constructor(private productsService: ProductsService) {}
 
@@ -18,6 +19,11 @@ export class ProductsComponent implements OnInit {
       this.products = data;
       console.log(data);
       console.log(this.products);
+
     });
+  }
+
+  getSeverity(this,products: Product[]): string{
+    return 'success';
   }
 }
