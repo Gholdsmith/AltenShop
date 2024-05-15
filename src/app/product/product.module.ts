@@ -14,7 +14,6 @@ import { ButtonModule } from 'primeng/button';
   ],
   imports: [
     CommonModule,
-    // ProductRoutingModule,
     DataViewModule,
     TabViewModule,
     ButtonModule
