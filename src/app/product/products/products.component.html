@@ -1,17 +1,14 @@
-<p-dataView #dv [value]="products">
-    <ng-template  pTemplate="listItem" let-product>
+<p-dataView [value]="products">
+    <ng-template pTemplate="header">List of products</ng-template>
+    <ng-template let-product pTemplate="listItem">
         <div>
-      
-            {{product.id}},
-			{{product.code}},
-			{{product.name}},
-			{{product.description}},
-			{{product.image}},
-			{{product.price}},
-			{{product.category}},
-			{{product.quantity}},
-			{{product.inventoryStatus}}:
-			{{product.rating}}: 5
+            {{product.id}}
         </div>
     </ng-template>
+    <ng-template let-product pTemplate="gridItem">
+        <div class="col-12 md:col-3">
+            {{product.name}}
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">Choose from the list.</ng-template>
 </p-dataView>
