@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "../product.model";
 import { ProductsService } from "../products.service";
-import { Subscription } from "rxjs/internal/Subscription";
+import { SelectItem } from "primeng/api";
+import { PrimeNGConfig } from "primeng/api";
 
 @Component({
   selector: "app-products",
@@ -10,20 +11,40 @@ import { Subscription } from "rxjs/internal/Subscription";
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  
 
-  constructor(private productsService: ProductsService) {}
+  sortOptions: SelectItem[];
+
+  sortOrder: number;
+
+  sortField: string;
+
+  constructor(
+    private productsService: ProductsService,
+    private primengConfig: PrimeNGConfig
+  ) {}
 
   ngOnInit() {
     this.productsService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
       console.log(data);
       console.log(this.products);
-
     });
+
+    this.sortOptions = [
+      { label: "Price High to Low", value: "!price" },
+      { label: "Price Low to High", value: "price" },
+    ];
   }
 
-  getSeverity(this,products: Product[]): string{
-    return 'success';
+  onSortChange(event) {
+    let value = event.value;
+
+    if (value.indexOf("!") === 0) {
+      this.sortOrder = -1;
+      this.sortField = value.substring(1, value.length);
+    } else {
+      this.sortOrder = 1;
+      this.sortField = value;
+    }
   }
 }
