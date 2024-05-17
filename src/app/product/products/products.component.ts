@@ -14,6 +14,9 @@ export class ProductsComponent implements OnInit {
 
   sortOptions: SelectItem[];
 
+
+  sortKey: string;
+
   sortOrder: number;
 
   sortField: string;

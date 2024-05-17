@@ -6,11 +6,11 @@ import {FormsModule} from '@angular/forms';
 import { ProductsAdminComponent } from './products-admin/products-admin.component';
 import { ProductsComponent } from './products/products.component';
 import { DataViewModule } from 'primeng/dataview';
-import { TabViewModule } from 'primeng/tabview';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import {DropdownModule} from 'primeng/dropdown';
 import {RatingModule} from 'primeng/rating';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import {RatingModule} from 'primeng/rating';
   imports: [
     CommonModule,
     DataViewModule,
-    TabViewModule,
+    TableModule,
     ButtonModule,
     TagModule,
     DropdownModule,
