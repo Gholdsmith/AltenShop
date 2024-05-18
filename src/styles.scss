@@ -1,3 +1,7 @@
+// *{
+//   box-shadow: 0 0 0 3px rgb(43, 0, 255) inset;
+// }
+
 
 /* PrimeNG */
 @import "~primeicons/primeicons.css";
@@ -64,6 +68,7 @@ $fontFamilyQuicksand: Quicksand, Helvetica Neue Light,Helvetica Neue,Helvetica,A
 /* Main styles */
 html,
 body {
+  display: flex;
   margin: 0;
   background-color: var(--primary-bg-color);
   color: var(--primary-font-color);
@@ -434,3 +439,4 @@ app-footer {
     left: 0 !important;
   }
 }
+
