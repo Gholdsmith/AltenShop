@@ -29,8 +29,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.productsService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
-      console.log(data);
-      console.log(this.products);
     });
 
     this.sortOptions = [

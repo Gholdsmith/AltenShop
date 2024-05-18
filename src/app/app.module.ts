@@ -9,10 +9,11 @@ import { AppComponent } from 'app/app.component';
 import { BaseModule } from 'app/base/base.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ProductModule } from './product/product.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
