@@ -6,7 +6,6 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { log } from "console";
 
-
 @Component({
   selector: "app-products-admin",
   templateUrl: "./products-admin.component.html",
@@ -20,7 +19,7 @@ export class ProductsAdminComponent implements OnInit {
 
   product: Product;
 
-  selectedProducts: Product[];
+  selectedProducts: Product[] = [];
 
   submitted: boolean;
 
@@ -147,6 +146,18 @@ findIndexById(id: string): number {
 createId(): number {
  let id = Math.max(...this.products.map(p => p.id));
   return id++;
+}
+
+onSelectProducts(product: Product) {
+  const index = this.selectedProducts.findIndex(p => p.id === product.id);
+  if (index !== -1) {
+    this.selectedProducts.splice(index, 1);
+    console.log('Désélectionné');
+  } else {
+    this.selectedProducts.push(product);
+    console.log('Sélectionné');
+  }
+  console.log(this.selectedProducts);
 }
 
 }
