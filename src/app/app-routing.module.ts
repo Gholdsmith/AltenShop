@@ -7,12 +7,20 @@ import { AuthGuard } from "./auth.guard";
 import { LoginComponent } from "./login/login.component";
 
 
+// const routes: Routes = [
+//   { path: '', redirectTo: 'login', pathMatch: 'full' },
+//   { path: 'login', component: LoginComponent},
+//   { path: 'admin/products', component: ProductsAdminComponent, canActivate: [AuthGuard] },
+//   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard]  },
+// ];
+
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent},
-  { path: 'admin/products', component: ProductsAdminComponent, canActivate: [AuthGuard] },
-  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard]  },
+  { path: '', redirectTo: 'admin/products', pathMatch: 'full' },
+  { path: 'admin/products', component: ProductsAdminComponent },
+  { path: 'products', component: ProductsComponent },
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],

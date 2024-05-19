@@ -11,6 +11,8 @@ import { TagModule } from 'primeng/tag';
 import {DropdownModule} from 'primeng/dropdown';
 import {RatingModule} from 'primeng/rating';
 import {TableModule} from 'primeng/table';
+import {ToolbarModule} from 'primeng/toolbar';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
@@ -26,7 +28,11 @@ import {TableModule} from 'primeng/table';
     TagModule,
     DropdownModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    ToolbarModule
+  ],
+  providers: [
+    ConfirmationService
   ]
 })
 export class ProductModule { }
