@@ -1,18 +1,22 @@
-<p-table [value]="products">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Vin</th>
-            <th>Year</th>
-            <th>Brand</th>
-            <th>Color</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-        <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.Brand}}</td>
-            <td>{{product.color}}</td>
-        </tr>
-    </ng-template>
+<p-table #dt [columns]="cols" [value]="products" [paginator]="true" [rows]="4" responsiveLayout="scroll">
+	<ng-template pTemplate="header" let-columns>
+		<tr>
+			<th *ngFor="let col of columns">
+				{{col.header}}
+			</th>
+		</tr>
+		<tr>
+			<th *ngFor="let col of columns">
+				<p-columnFilter type="text" [field]="col.field" [matchModeOptions]="matchModeOptions"
+					[matchMode]="'custom-equals'"></p-columnFilter>
+			</th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-rowData let-columns="columns">
+		<tr [pSelectableRow]="rowData">
+			<td *ngFor="let col of columns">
+				{{rowData[col.field]}}
+			</td>
+		</tr>
+	</ng-template>
 </p-table>
