@@ -13,6 +13,8 @@ import {RatingModule} from 'primeng/rating';
 import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import { ConfirmationService } from 'primeng/api';
+import {DialogModule} from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ConfirmationService } from 'primeng/api';
     DropdownModule,
     RatingModule,
     FormsModule,
-    ToolbarModule
+    ToolbarModule,
+    DialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     ConfirmationService
