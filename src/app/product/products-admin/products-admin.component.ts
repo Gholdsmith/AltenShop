@@ -79,6 +79,9 @@ deleteSelectedProducts() {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
           this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+
+          this.productsService.deleteProduct(this.selectedProducts);
+          
           this.selectedProducts = null;
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
       }
@@ -99,6 +102,10 @@ deleteProduct(product: Product) {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
           this.products = this.products.filter(val => val.id !== product.id);
+
+          // Only one product to delete here => 
+          this.productsService.deleteProduct([product]);
+
           this.product = {};
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
       }
@@ -158,6 +165,10 @@ onSelectProducts(product: Product) {
     console.log('Sélectionné');
   }
   console.log(this.selectedProducts);
+}
+
+onSelctAll(){
+
 }
 
 }

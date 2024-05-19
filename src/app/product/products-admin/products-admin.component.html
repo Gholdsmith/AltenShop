@@ -15,7 +15,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 	<ng-template pTemplate="header" let-columns>
 		<tr>
             <th>
-                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                <p-tableHeaderCheckbox (click)="onSelctAll()"></p-tableHeaderCheckbox>
             </th>
             <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
             <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
