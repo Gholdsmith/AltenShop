@@ -48,4 +48,14 @@ export class ProductsComponent implements OnInit {
       this.sortField = value;
     }
   }
+
+  getInputValue(event: Event): string {
+    const { target } = event;
+    if (target) {
+      return (target as HTMLInputElement).value;
+    }
+    return ''; 
+  }
+  
+
 }
