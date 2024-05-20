@@ -1,26 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
-
-  constructor() { }
-
-  isLoggedIn: boolean = false;
-  redirectUrl: string;
-
-  login(name:string, password: string): Observable<boolean>{
-    const isLoggedIn = (name == 'admin' && password == 'admin');
-
-    return of(isLoggedIn).pipe(
-      delay(1000),
-      tap(isLoggedIn => this.isLoggedIn = isLoggedIn)
-    )
+  constructor() {
+    this.isLoggedIn = !!this.getToken();
   }
 
-  logout(){
+  isLoggedIn: boolean = false;
+  private readonly TOKEN_KEY = "authToken";
+
+  login(name: string, password: string): boolean {
+    this.isLoggedIn = name == "admin" && password == "admin";
+    this.setToken("token");
+    return this.isLoggedIn;
+  }
+
+  logout() {
     this.isLoggedIn = false;
+    this.removeToken();
+  }
+
+  private setToken(token: string) {
+    localStorage.setItem(this.TOKEN_KEY, token);
+  }
+
+  private getToken(): string | null {
+    return localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  private removeToken(){
+    localStorage.removeItem(this.TOKEN_KEY)
   }
 }
