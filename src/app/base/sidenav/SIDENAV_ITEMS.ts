@@ -7,6 +7,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "Products",
       fr: "Products"
     },
+    icon: 'shopping-cart',
     link: '/products'
 
   },
@@ -14,8 +15,9 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
     id: 'Menu-item-2',
     labels: {
       en: "admin",
-      fr: "admin"
+      fr: "admin",
     },
+    icon: 'users',
     link: '/admin/products'
 
   },
@@ -25,6 +27,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "logout",
       fr: "logout"
     },
+    icon: 'sign-out',
     link: '/login'
 
   },
