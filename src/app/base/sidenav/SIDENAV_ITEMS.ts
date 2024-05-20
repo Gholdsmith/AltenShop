@@ -18,6 +18,15 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
     },
     link: '/admin/products'
 
-  }
+  },
+  {
+    id: 'Menu-item-3',
+    labels: {
+      en: "logout",
+      fr: "logout"
+    },
+    link: '/login'
+
+  },
 
 ];
