@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.name, this.password);
     this.setMessage();
     if (this.auth.isLoggedIn) 
-      this.router.navigate(["admin/products"]);
+      this.router.navigate(["products"]);
     else {
       this.password = "";
       this.router.navigate(["login"]);

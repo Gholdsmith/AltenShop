@@ -17,9 +17,9 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
       en: "admin",
       fr: "admin",
     },
+    hidden: true,
     icon: 'users',
     link: '/admin/products'
-
   },
   {
     id: 'Menu-item-3',
