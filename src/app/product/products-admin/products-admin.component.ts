@@ -6,7 +6,6 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { log } from "console";
 
-
 @Component({
   selector: "app-products-admin",
   templateUrl: "./products-admin.component.html",
@@ -20,7 +19,7 @@ export class ProductsAdminComponent implements OnInit {
 
   product: Product;
 
-  selectedProducts: Product[];
+  selectedProducts: Product[] = [];
 
   submitted: boolean;
 
@@ -80,6 +79,9 @@ deleteSelectedProducts() {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
           this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+
+          this.productsService.deleteProduct(this.selectedProducts);
+          
           this.selectedProducts = null;
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
       }
@@ -100,6 +102,10 @@ deleteProduct(product: Product) {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
           this.products = this.products.filter(val => val.id !== product.id);
+
+          // Only one product to delete here => 
+          this.productsService.deleteProduct([product]);
+
           this.product = {};
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
       }
@@ -147,6 +153,22 @@ findIndexById(id: string): number {
 createId(): number {
  let id = Math.max(...this.products.map(p => p.id));
   return id++;
+}
+
+onSelectProducts(product: Product) {
+  const index = this.selectedProducts.findIndex(p => p.id === product.id);
+  if (index !== -1) {
+    this.selectedProducts.splice(index, 1);
+    console.log('Désélectionné');
+  } else {
+    this.selectedProducts.push(product);
+    console.log('Sélectionné');
+  }
+  console.log(this.selectedProducts);
+}
+
+onSelctAll(){
+
 }
 
 }

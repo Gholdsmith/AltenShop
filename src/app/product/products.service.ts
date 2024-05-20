@@ -23,4 +23,8 @@ export class ProductsService {
       map(response => response.data)
     );
   }
+
+  deleteProduct(selectedProducts : Product[]){}
+
+  updateProduct(product: Product){}
 }

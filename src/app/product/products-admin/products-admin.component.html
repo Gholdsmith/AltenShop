@@ -15,7 +15,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
 	<ng-template pTemplate="header" let-columns>
 		<tr>
             <th>
-                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                <p-tableHeaderCheckbox (click)="onSelctAll()"></p-tableHeaderCheckbox>
             </th>
             <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
             <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
@@ -33,7 +33,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
     <ng-template pTemplate="body" let-product>
         <tr>
             <td>
-                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                <p-tableCheckbox (click)="onSelectProducts(product)" [value]="product"></p-tableCheckbox>
             </td>
             <td>{{product.code}}</td>
             <td>{{product.name}}</td>
