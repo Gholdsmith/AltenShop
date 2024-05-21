@@ -10,7 +10,7 @@
 - user/user to only dipslay the products
 - admin/admin to add/edit/remove products
 
-## Known Bugs and Improvements
+## Known Bugs
 
 ### Known Bugs
 
