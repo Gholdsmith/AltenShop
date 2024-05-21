@@ -5,7 +5,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Json server
 
-
+Run `npm install -g json-server` to mock backend using json-server.
+Run ` json-server --watch src/assets/products.json --port 3000` to mock a json-server
 
 ## Code scaffolding
 

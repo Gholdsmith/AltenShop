@@ -1,37 +1,24 @@
-
-
-      <p-card>
-        <p-card header="header">
-          <span class="p-card-title">Page de connexion</span>
-        </p-card>
-        <div class="p-card-body">
-          <p><em>{{ message }}</em></p>
-          <form #loginForm="ngForm">
-            <div class="p-field">
-              <label for="name">Name</label>
-              <input pInputText type="text" id="name" [(ngModel)]="name" name="name" required />
-            </div>
-            <div class="p-field">
-              <label for="password">Password</label>
-              <input pInputText type="password" id="password" [(ngModel)]="password" name="password" required />
-            </div>
-          </form>
-        </div>
-        <div class="p-card-footer p-text-center">
-          <button pButton type="button" label="Se connecter" icon="pi pi-check" (click)="login()" *ngIf="!auth.isLoggedIn"></button>
-          <button pButton type="button" label="Se déconnecter" icon="pi pi-sign-out" (click)="logout()" *ngIf="auth.isLoggedIn"></button>
-        </div>
-      </p-card>
-  
- 
-      <!-- <p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
-        <ng-template pTemplate="header">
-            <img alt="Card" src="assets/showcase/images/usercard.png">
-        </ng-template>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-        <ng-template pTemplate="footer">
-            <p-button label="Save" icon="pi pi-check"></p-button>
-            <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
-        </ng-template>
-    </p-card> -->
+<p-card>
+  <p-card>
+    <span class="p-card-title">Page de connexion</span>
+  </p-card>
+  <div class="p-card-body">
+    <p><em>{{ message }}</em></p>
+    <form #loginForm="ngForm">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input pInputText type="text" id="name" [(ngModel)]="name" name="name" required />
+      </div>
+      <div class="p-field">
+        <label for="password">Password</label>
+        <input pInputText type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+    </form>
+  </div>
+  <div class="p-card-footer p-text-center">
+    <button pButton type="button" label="Se connecter" icon="pi pi-check" (click)="login()"
+      *ngIf="!auth.isLoggedIn"></button>
+    <button pButton type="button" label="Se déconnecter" icon="pi pi-sign-out" (click)="logout()"
+      *ngIf="auth.isLoggedIn"></button>
+  </div>
+</p-card>
