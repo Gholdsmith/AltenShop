@@ -37,7 +37,7 @@ export class ProductsService {
 
   updateProduct(product: Product): Observable<Product>{
     const url = `${this.apiUrl}/${product.id}`
-    return this.http.patch(url, product);
+    return this.http.patch<Product>(url, product);
   }
 
 

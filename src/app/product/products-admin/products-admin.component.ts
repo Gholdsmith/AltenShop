@@ -70,7 +70,7 @@ export class ProductsAdminComponent implements OnInit {
   }
 
   openNew() {
-    this.product = {};
+    this.product = new Product();
     this.submitted = false;
     this.productDialog = true;
 }
@@ -109,7 +109,7 @@ deleteProduct(product: Product) {
           // Only one product to delete here => 
           this.productsService.deleteProduct(product.id.toString());
 
-          this.product = {};
+          this.product = new Product();
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
       }
   });
@@ -137,7 +137,7 @@ saveProduct() {
 
       this.products = [...this.products];
       this.productDialog = false;
-      this.product = {};
+      this.product = new Product();
   }
 }
 

@@ -1,13 +1,13 @@
 // src/app/models/product.model.ts
-export interface Product {
-    id?: number;
-    code?: string;
-    name?: string;
-    description?: string;
-    price?: number;
-    quantity?: number;
-    inventoryStatus?: string;
-    category?: string;
+export class Product {
+    id: number;
+    code: string;
+    name: string;
+    description: string;
+    price: number;
+    quantity: number;
+    inventoryStatus: string;
+    category: string;
     image?: string;
     rating?: number;
   }
