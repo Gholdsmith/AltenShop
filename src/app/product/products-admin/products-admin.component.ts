@@ -38,6 +38,9 @@ export class ProductsAdminComponent implements OnInit {
 
     this.productsService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
+      console.log("prodcutAdmin");
+      console.log(this.product);
+      
     });
 
 
@@ -67,7 +70,7 @@ export class ProductsAdminComponent implements OnInit {
   }
 
   openNew() {
-    this.product = {};
+    this.product = new Product();
     this.submitted = false;
     this.productDialog = true;
 }
@@ -80,7 +83,7 @@ deleteSelectedProducts() {
       accept: () => {
           this.products = this.products.filter(val => !this.selectedProducts.includes(val));
 
-          this.productsService.deleteProduct(this.selectedProducts);
+          this.productsService.deleteSelectedProducts(this.selectedProducts);
           
           this.selectedProducts = null;
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
@@ -104,9 +107,9 @@ deleteProduct(product: Product) {
           this.products = this.products.filter(val => val.id !== product.id);
 
           // Only one product to delete here => 
-          this.productsService.deleteProduct([product]);
+          this.productsService.deleteProduct(product.id.toString());
 
-          this.product = {};
+          this.product = new Product();
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
       }
   });
@@ -134,7 +137,7 @@ saveProduct() {
 
       this.products = [...this.products];
       this.productDialog = false;
-      this.product = {};
+      this.product = new Product();
   }
 }
 
